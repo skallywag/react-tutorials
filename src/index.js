@@ -1,17 +1,37 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+//CSS
+import "./index.css";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// stateless functional component
+// always need to return jsx!(a single element)
+// use camelCase for html attributes
+// className instead of class
+// close every element(self close)
+
+function BookList() {
+  return (
+    <section className="booklist">
+      <Book />
+    </section>
+  );
+}
+
+const author = "Eric Carle";
+const Book = () => {
+  const title = "The very hungry caterpillar";
+  return (
+    <article className="book">
+      <img
+        src="https://images-na.ssl-images-amazon.com/images/I/91vnzZO5yPL._AC_UL200_SR200,200_.jpg"
+        alt=""
+      />
+      <h1>{title}</h1>
+      <h4>{author.toLocaleUpperCase()}</h4>
+      {/* <p>{let x = 6}</p> */}
+    </article>
+  );
+};
+
+ReactDOM.render(<BookList />, document.getElementById("root"));
